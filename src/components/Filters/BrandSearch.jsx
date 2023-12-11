@@ -17,6 +17,7 @@ export const BrandsSearch = () => {
         <div>
             <label htmlFor="brand">Car brand</label>
             <select name="brand" id="brand" onChange={evt => handleFilterChange(evt.target.value)}>
+                <option key='all' value=''>Enter the text</option>
                 {carBrands.map(brand => (
                     <option key={brand} value={brand}>{ brand }</option>
                 ))}

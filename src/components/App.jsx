@@ -4,7 +4,7 @@ import { AppBar } from "./AppBar/AppBar";
 
 const Home = lazy(() => import("../pages/Homepage/HomePage"));
 const Catalog = lazy(() => import("../pages/CatalogPage/CatalogPage"));
-const Favorites = lazy(() => import("../pages/FavoritePage/FavoritePage"));
+const Favourites = lazy(() => import("../pages/FavouritePage/FavouritePage"));
 
 export const App = () => {
   return (
@@ -22,7 +22,7 @@ export const App = () => {
         <Route path="/" element={<AppBar />}>
           <Route index element={<Home/>} />
           <Route path="catalog" element={<Catalog />} />
-          <Route path="favorites" element={<Favorites/> } />
+          <Route path="favorites" element={<Favourites/> } />
         </Route>
         </Routes>
     </div>

@@ -1,22 +1,19 @@
 
 import { ItemAdvert } from "components/ItemAdvert/ItemAdvert";
 import { useSelector } from "react-redux";
-import { selectVisibleAdverts } from "../../redux/catalog/selectors";
+import { selectFavouriteAdverts } from "../../redux/catalog/selectors";
 
 
-export const CatalogList = () => {
-        const filteredAdverts = useSelector(selectVisibleAdverts);
+export const FavouriteList = () => {
+        const favouriteAdverts = useSelector(selectFavouriteAdverts);
     return (
-        <>
         <ul>
-            {filteredAdverts.map(item => (
+            {favouriteAdverts.map(item => (
                 <li key = {item.id}>
                     <ItemAdvert item={item } />
                 </li>
             ))}        
-            </ul>        
-        </>
-
+        </ul>
 
     )
 }

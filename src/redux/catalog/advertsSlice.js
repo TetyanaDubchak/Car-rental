@@ -7,6 +7,13 @@ const advertsSlice = createSlice({
         items: [],
         isLoading: false,
         error: null,
+        currentPage: 1, 
+    },
+    reducers: {
+        nextPage: (state) => {
+            state.currentPage += 1;
+           
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -16,7 +23,7 @@ const advertsSlice = createSlice({
             .addCase(getAdverts.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.error = null;
-                state.items = action.payload;
+                state.items = [...state.items, ...action.payload]
             })
             .addCase(getAdverts.rejected, (state, action) => {
                 state.isLoading = false;
@@ -26,4 +33,5 @@ const advertsSlice = createSlice({
 
 })
 
+export const { nextPage } = advertsSlice.actions;
 export const advertsReducer = advertsSlice.reducer;
